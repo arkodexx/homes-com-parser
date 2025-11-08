@@ -11,6 +11,7 @@ options = Options()
 user =  UserAgent().random
 options.add_argument(f"--user-agent={user}")
 options.add_argument("--headless")
+options.page_load_strategy = "eager"
 
 service = Service(executable_path=GeckoDriverManager().install())
 driver = webdriver.Firefox(service=service, options=options)
